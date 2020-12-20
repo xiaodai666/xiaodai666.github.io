@@ -23,7 +23,7 @@ django-reversion==3.0.4
 djangorestframework==3.10.3
 et-xmlfile==1.0.1
 future==0.18.1
-httplib2==0.14.0
+httplib2==0.18.0
 idna==2.8
 importlib-metadata==0.23
 isort==4.3.21
