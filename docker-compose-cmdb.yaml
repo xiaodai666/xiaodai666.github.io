@@ -1,0 +1,37 @@
+version: '3.2'
+
+services:
+   cmdb:
+     build: /cmdb
+     container_name: cmdb-server
+     expose:
+       - "8000"
+     tty: true
+     restart: always
+     networks:
+       - cmdb_django
+     volumes:
+       - /cmdb/auth_cmdb:/opt/auth_cmdb
+     command:
+       - /bin/bash
+       - -c 
+       - | 
+         cd /opt/auth_cmdb
+         pip3 install uwsgi
+         uwsgi --ini /opt/auth_cmdb/conf/auth_cmdb.ini
+   nginx:
+     image: nginx:alpine3.8
+     restart: always
+     container_name: nginx-cmdb
+     ports:
+       - "80:80"
+     networks:
+       - cmdb_django
+     volumes:
+       - /cmdb/nginx/conf.d:/etc/nginx/conf.d
+       - /cmdb/nginx/allstatic:/allstatic
+     depends_on:
+       - cmdb
+
+networks:
+  cmdb_django:
