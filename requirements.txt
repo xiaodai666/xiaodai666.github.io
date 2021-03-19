@@ -40,7 +40,7 @@ more-itertools==7.2.0
 odfpy==1.4.0
 openpyxl==3.0.0
 pexpect==4.7.0
-Pillow==6.2.1
+Pillow==8.1.1
 ptyprocess==0.6.0
 pycparser==2.19
 Pygments==2.4.2
