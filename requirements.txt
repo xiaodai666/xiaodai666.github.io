@@ -1,5 +1,5 @@
 amqp==2.5.1
-ansible==2.8.6
+ansible==2.10.0
 astroid==2.3.2
 billiard==3.6.1.0
 celery==4.3.0
